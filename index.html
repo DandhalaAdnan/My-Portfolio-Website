@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adnan Memon - Android & Flutter Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #66CCCC; /* Soft Cyan */
+            --secondary-color: #FF9900; /* Orange */
+            --background-color: #1A1A1A; /* Very Dark Gray */
+            --text-color: #E0E0E0; /* Light Gray */
+            --accent-color: #33CC33; /* Medium Green */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #000033, #000066);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-top: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Profile Image Style */
+        .profile-image {
+            width: 150px; /* Adjust width as needed */
+            height: auto; /* Keep aspect ratio */
+            border-radius: 50%; /* Make it circular */
+            margin-bottom: 20px; /* Space below the image */
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            margin: 0 5px;
+            font-size: 1em;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: black;
+        }
+
+        /* Responsive Header */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 3em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        section p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skills div {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .skills div:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills h3 {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            margin: 0 0 15px;
+        }
+
+        .skills p {
+            font-size: 0.9em;
+            color: #AAAAAA;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info a {
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #000066;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 1024px) {
+            section {
+                padding: 40px 20px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .projects {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            nav {
+                position: static;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 0.9em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                padding: 20px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav a {
+                font-size: 0.9em;
+            }
+
+            section {
+                padding: 25px 20px;
+            }
+
+            .skills div {
+                padding: 20px;
+            }
+
+            .project-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <img src="images/my-profile-image.jpg" alt="Adnan Memon" class="profile-image"> <!-- Local image -->
+        <h1>Adnan Memon</h1>
+        <p>Android & Flutter Developer</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am an Android & Flutter developer passionate about building mobile applications that provide seamless user experiences. 
+            With a solid foundation in both native Android and cross-platform development, I strive to create efficient, reliable, and user-friendly solutions.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills">
+            <div>
+                <h3>Android Development</h3>
+                <p>Building native Android applications using Kotlin and Jetpack libraries.</p>
+            </div>
+            <div>
+                <h3>Flutter Development</h3>
+                <p>Creating cross-platform mobile apps with Flutter for Android and iOS.</p>
+            </div>
+            <div>
+                <h3>APIs & Backend</h3>
+                <p>Integrating RESTful APIs and managing backend services for mobile apps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project Title 1</h3>
+                <p>A brief description of what this project is about. Focus on the technologies used and the problem it solves.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Title 2</h3>
+                <p>A brief description of what this project is about. Focus on the technologies used and the problem it solves.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Title 3</h3>
+                <p>A brief description of what this project is about. Focus on the technologies used and the problem it solves.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or inquiries!</p>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Adnan Memon | Android & Flutter Developer</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* Profile Image */
+.profile-image {
+    border-radius: 50%; /* Makes the image circular */
+    width: 150px; /* Adjust width as necessary */
+    height: 150px; /* Adjust height as necessary */
+    object-fit: cover; /* Ensures the image covers the space */
+    margin: 20px 0; /* Adds space above and below the image */
+}
